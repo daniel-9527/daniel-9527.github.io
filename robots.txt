@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+Allow: /about/
+Allow: /photos/
+
+Disallow: /tags/
+Disallow: /categories/
+Disallow: /archives/
+Disallow: /contact/
+Disallow: /404.html
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+
+Sitemap: http://www.frtgjs.com/sitemap.xml
+Sitemap: http://www.frtgjs.com/baidusitemap.xml
