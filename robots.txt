@@ -2,10 +2,10 @@ User-agent: *
 Allow: /
 Allow: /about/
 Allow: /photos/
+Allow: /tags/
+Allow: /categories/
+Allow: /archives/
 
-Disallow: /tags/
-Disallow: /categories/
-Disallow: /archives/
 Disallow: /contact/
 Disallow: /404.html
 Disallow: /js/
