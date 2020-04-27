@@ -5,14 +5,10 @@ Allow: /photos/
 Allow: /tags/
 Allow: /categories/
 Allow: /archives/
-
-Disallow: /contact/
-Disallow: /404.html
 Disallow: /js/
 Disallow: /css/
 Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
-
 Sitemap: http://www.frtgjs.com/sitemap.xml
 Sitemap: http://www.frtgjs.com/baidusitemap.xml
