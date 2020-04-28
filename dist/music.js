@@ -2,6 +2,11 @@ const ap = new APlayer({
     container: document.getElementById('aplayer'),
     fixed: true,
     autoplay: true,
+    listFolded: true,
+    preload: 'auto',
+    mutex: true,
+    loop: 'all',
+    lrcType: 1,
     audio: [
       {
         name: "只要平凡",
