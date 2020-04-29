@@ -1,0 +1,40 @@
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            <%= __('widget.links') %>
+        </h3>
+        <ul class="menu-list">
+        <% for (let i in links) { %>
+            <li>
+                <a class="level is-mobile" href="<%- links[i] %>" target="_blank" style="text-decoration: underline" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item"><%= i %></span>
+                    </span>
+                    <!--<span class="level-right">
+                        <span class="level-item tag"><%- get_domain(links[i]) %></span>
+                    </span>-->
+                </a>
+            </li>
+        <% } %>
+        <!--<% let flag = 1; for (let i in links) { %>
+            <% if (flag == 1) { %>
+                <li>
+                <a class="level is-mobile" href="<%- links[i] %>" target="_blank">
+                    <span class="level-left" style="text-decoration: underline">
+                        <span class="level-item"><%= i %></span>
+                    </span> 
+                </a>      
+                <% flag = 0;} else {%>
+                <a class="level is-mobile" href="<%- links[i] %>" target="_blank">
+                    <span class="level-right" style="text-decoration: underline">
+                        <span class="level-item"><%= i %></span>
+                    </span>
+                </a>
+                </li>
+            <% flag = 1;} %>
+        <% } %>-->
+        </ul>
+        </div>
+    </div>
+</div>

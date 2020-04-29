@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html <%- has_config('language') ? ' lang="' + get_config('language').substring(0, 2) + '"' : '' %>>
+<head>
+    <%- _partial('common/head') %>
+    <!-- 谷歌验证 -->
+    <meta name="google-site-verification" content="xYw8vwVk8kmm-c0A8Y6XpGOX02UKYd0RxqhHxluEmns" />
+</head>
+<!-- <body class="is-<%= column_count() %>-column"> -->
+<body class="is-3-column">
+    <!-- night mode -->
+    <script type="text/javascript" src="/js/night.js"></script>
+    <canvas id="universe"></canvas>
+    <script type="text/javascript" src="/js/universe.js"></script>  
+    <!-- night mode -->
+    <%- _partial('common/navbar') %>
+    <% function main_column_class() {
+        switch (column_count()) {
+            case 1:
+                return 'is-12';
+            case 2:
+                return 'is-8-tablet is-9-desktop is-9-widescreen';
+            case 3:
+                return 'is-8-tablet is-8-desktop is-6-widescreen'
+        }
+        return '';
+    } %>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column <%= main_column_class() %> has-order-2 column-main"><%- body %></div>
+                <%- _partial('common/widget', { position: 'left' }) %>
+                <% if (page.__page !== true && page.__post !== true) { %>
+                <%- _partial('common/widget', { position: 'right' }) %>
+                <% } %>
+            </div>
+        </div>
+    </section>
+    <%- _partial('common/footer') %>
+    <%- _partial('common/scripts') %>
+
+    <% if (has_config('search.type')) { %>
+    <%- _partial('search/' + get_config('search.type')) %>
+    <% } %>
+    <!--落花的特效-->
+    <!-- <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn@latest/js/sakura.js"></script> -->
+    <!--鼠标点击效果-->
+    <!-- <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+    <script type="text/javascript" src="/js/fireworks.js"></script> -->
+    <!--单击显示文字-->
+    <!-- <script type="text/javascript" src="/js/click_show_text.js"></script> -->
+    <!--动态线条背景-->
+    <!-- <script type="text/javascript"
+    color="200,200,200" opacity='0.3' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"> -->
+    <!-- </script> -->
+
+    <!-- 一言API -->
+    <!-- 现代写法，推荐 -->
+    <!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
+    <script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+    <!--End-->
+    <script>
+      fetch('https://v1.hitokoto.cn')
+        .then(function (res){
+          return res.json();
+        })
+        .then(function (data) {
+          var hitokoto = document.getElementById('hitokoto');
+          hitokoto.innerText = data.hitokoto + '——【' + data.from + '】';
+        })
+        .catch(function (err) {
+          console.error(err);
+        })
+    </script>
+
+    <!--tidio聊天-->
+    <!-- <script src="//code.tidio.co/kl5bkz5spfr4rgznwmhceo1oulf98hbp.js" async></script> -->
+    <!-- 使用instant.page为你站点加速 -->
+    <script src="//instant.page/2.0.0" type="module" defer integrity="sha384-D7B5eODAUd397+f4zNFAVlnDNDtO1ppV8rPnfygILQXhqu3cUndgHvlcJR2Bhig8"></script>
+
+    <!-- 音频播放 -->
+    <!-- <link rel="stylesheet" href="/dist/APlayer.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+    <div id="aplayer"></div>
+    <!-- <script type="text/javascript" src="/dist/APlayer.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+    <script type="text/javascript" src="/dist/music.js"></script>
+
+</body>
+</html>

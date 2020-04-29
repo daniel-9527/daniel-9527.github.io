@@ -1,0 +1,88 @@
+<footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div align="center">
+                <div class="level-start has-text-centered-mobile">
+                    <a class="footer-logo is-block has-mb-6" href="<%- url_for('/') %>">
+                    <% if (has_config('logo.text') && get_config('logo.text')) { %>
+                        <%= get_config('logo.text') %>
+                    <% } else { %>
+                        <!--<img src="<%- url_for(get_config('logo')) %>" alt="<%= get_config('title') %>" height="28">-->
+                        <img class="logo-img" src="<%- url_for(logo.light) %>" alt="<%= title %>" height="28" />
+                        <img class="logo-img-dark" src="<%- url_for(logo.dark) %>" alt="<%= title %>" height="28" />
+                    <% } %>
+                    </a>
+                    <p class="is-size-7">
+                    Copyright &copy; <%= date(new Date(), 'YYYY') %> <%= get_config('author') || get_config('title') %>&nbsp;All Rights Reserved.
+                    </p>
+                    <!--<p class="is-size-7">
+                    Powered by &#10084; <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+                    & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                    </p>-->
+                </div>
+                <div align="center">
+                    <p>电 话：15205960587 &nbsp;&nbsp; 联系人：林经理</p>
+                </div>
+                <!--<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+                <script>
+                    var now = new Date(); 
+                    function createtime() { 
+                        var grt= new Date("12/17/2019 12:49:00");//此处修改你的建站时间或者网站上线时间 
+                        now.setTime(now.getTime()+250); 
+                        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+                        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+                        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+                        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+                        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+                        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+                        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+                        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+                    } 
+                    setInterval("createtime()",250);
+                </script>
+                <div align="center">
+                    <span id="busuanzi_container_site_uv" class="theme-info">
+                        <i class="fa fa-user"></i> 本站访客数 <span id="busuanzi_value_site_uv"></span> 人次
+                    </span>
+                    <span id="busuanzi_container_site_pv" class="theme-info">
+                        &nbsp;<i class="fa fa-eye"></i> 本站总访问量 <span id="busuanzi_value_site_pv"></span> 次
+                    </span>
+                    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                </div>-->
+            </div>
+            <div class="level-end">
+                <% if (has_config('footer.links')) { %>
+                    <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                    <% let links = get_config('footer.links'); %>
+                    <% for (let name in links) {
+                            let link = links[name]; %>
+                    <p class="control">
+                        <a class="button is-white <%= typeof(link) !== 'string' ? 'is-large' : '' %>" target="_blank" title="<%= name %>" href="<%= url_for(typeof(link) === 'string' ? link : link.url) %>">
+                            <% if (typeof(link) === 'string') { %>
+                            <%= name %>
+                            <% } else { %>
+                            <i class="<%= link.icon %>"></i>
+                            <% } %>
+                        </a>
+                    </p>
+                    <% } %>
+                    </div>
+                <% } %>
+            </div>
+
+            <!--<span>
+                <script type="text/javascript" src="//rf.revolvermaps.com/0/0/2.js?i=0xetp0d4rdh&amp;m=7&amp;s=100&amp;c=ff0000&amp;t=1" async="async"></script>
+            </span>-->
+
+            <script>
+                (function(){
+                    var bp = document.createElement('script');
+                    bp.src = '//push.zhanzhang.baidu.com/push.js';
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(bp, s);
+                })();
+            </script>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+</footer>
